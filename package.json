@@ -4,11 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "node server.mjs",
+    "start": "node --env-file=.env server.mjs",
     "test": "node --test"
   },
   "engines": {
-    "node": ">=20.6 <25"
+    "node": ">=20.6"
   }
 }
 
