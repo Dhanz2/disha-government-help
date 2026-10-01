@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#402752" />
+  <title>Disha — Government help, in your words</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&family=Noto+Sans+Gurmukhi:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Sans+Meetei+Mayek:wght@400;500;600;700&family=Noto+Sans+Oriya:wght@400;500;600;700&family=Noto+Sans+Ol+Chiki:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Disha home"><span class="brand-mark">✳</span><span>Disha<span class="brand-dot">.</span></span></a>
+      <div class="brand-caption" data-i18n="brandCaption">सरकारी मदद, आपकी भाषा में</div>
+      <div class="language-wrap">
+        <span class="language-icon" aria-hidden="true">文</span>
+        <label class="sr-only" for="language">Choose your language</label>
+        <select id="language" aria-label="Choose your language">
+          <option value="as">অসমীয়া</option><option value="bn">বাংলা</option><option value="brx">बड़ो</option><option value="doi">डोगरी</option><option value="en" selected>English</option><option value="gu">ગુજરાતી</option><option value="hi">हिन्दी</option><option value="kn">ಕನ್ನಡ</option><option value="ks">کٲشُر</option><option value="kok">कोंकણી</option><option value="mai">मैथिली</option><option value="ml">മലയാളം</option><option value="mni">ꯃꯤꯇꯩꯂꯣꯟ</option><option value="mr">मराठी</option><option value="ne">नेपाली</option><option value="or">ଓଡ଼ିଆ</option><option value="pa">ਪੰਜਾਬੀ</option><option value="sa">संस्कृतम्</option><option value="sat">ᱥᱟᱱᱛᱟᱲᱤ</option><option value="sd">سنڌي</option><option value="ta">தமிழ்</option><option value="te">తెలుగు</option><option value="ur">اردو</option>
+        </select><span class="chevron">⌄</span>
+      </div>
+    </header>
+
+    <div class="workspace">
+      <aside class="side-panel">
+        <section class="welcome" aria-labelledby="welcome-title">
+          <div class="eyebrow"><span class="eyebrow-dot"></span><span data-i18n="eyebrow">आपकी मदद, आपकी भाषा में</span></div>
+          <h1 id="welcome-title" data-i18n="title">किस काम में<br>मदद चाहिए?</h1>
+          <p class="subtitle" data-i18n="subtitle">बोलकर या लिखकर बताइए। हम एक-एक कदम साथ चलेंगे।</p>
+        </section>
+
+        <section class="quick-section" aria-labelledby="quick-title">
+          <div class="section-heading"><span id="quick-title" data-i18n="quickTitle">या कोई विषय चुनें</span><span class="section-rule"></span></div>
+          <div class="topic-grid">
+            <button class="topic" data-topic="pension"><span class="topic-icon icon-lilac">♡</span><span data-i18n="topicPension">पेंशन और सहायता</span><span class="topic-arrow">↗</span></button>
+            <button class="topic" data-topic="health"><span class="topic-icon icon-peach">✚</span><span data-i18n="topicHealth">स्वास्थ्य सेवा</span><span class="topic-arrow">↗</span></button>
+            <button class="topic" data-topic="documents"><span class="topic-icon icon-mint">▤</span><span data-i18n="topicDocs">मेरे दस्तावेज़</span><span class="topic-arrow">↗</span></button>
+            <button class="topic" data-topic="work"><span class="topic-icon icon-yellow">✳</span><span data-i18n="topicWork">काम और कौशल</span><span class="topic-arrow">↗</span></button>
+          </div>
+          <details class="directory">
+            <summary data-i18n="browseMore">Browse all help topics</summary>
+            <div id="directory-grid" class="directory-grid"></div>
+          </details>
+        </section>
+
+        <section class="privacy-card">
+          <span class="privacy-icon" aria-hidden="true">✳</span>
+          <div><strong data-i18n="safeTitle">आपकी जानकारी सुरक्षित रहे</strong><p data-i18n="privacy">आपका संदेश और हाल की बातचीत जवाब के लिए OpenAI को भेजी जाती है। आधार, OTP, PIN, पासवर्ड या बैंक की जानकारी साझा न करें।</p></div>
+        </section>
+      </aside>
+
+      <div class="main-panel">
+        <section class="ask-card" aria-label="Ask Disha">
+          <div class="ask-card-top"><div><span class="mini-label" data-i18n="askLabel">DISHA से पूछें</span><h2 data-i18n="askTitle">आपको किस मदद की तलाश है?</h2></div><div class="ai-badge"><span></span> AI GUIDE</div></div>
+          <div class="state-picker"><label for="state" data-i18n="stateLabel">YOUR STATE / UT</label><select id="state" aria-label="Your state or union territory"><optgroup label="States"><option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option><option>Bihar</option><option>Chhattisgarh</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option><option>Jharkhand</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option><option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option><option>Odisha</option><option>Punjab</option><option>Rajasthan</option><option>Sikkim</option><option value="Tamil Nadu" selected>Tamil Nadu — தமிழ்நாடு</option><option>Telangana</option><option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option><option>West Bengal</option></optgroup><optgroup label="Union Territories"><option>Andaman and Nicobar Islands</option><option>Chandigarh</option><option>Dadra and Nagar Haveli and Daman and Diu</option><option>Delhi</option><option>Jammu and Kashmir</option><option>Ladakh</option><option>Lakshadweep</option><option>Puducherry</option></optgroup></select><span aria-hidden="true">⌄</span></div>          <div class="mic-row">
+            <button id="mic" class="mic-button" type="button" aria-label="Speak your question"><span class="mic-glyph" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"></rect><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3m-4 0h8"></path></svg></span></button>
+            <div class="mic-copy"><strong id="mic-title" data-i18n="micTitle">बोलने के लिए छुएँ</strong><span id="mic-hint" data-i18n="micHint">जैसे आप आम तौर पर बोलती हैं, वैसे बोलें</span></div>
+            <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+          </div>
+          <div class="divider"><span data-i18n="orType">या यहाँ लिखें</span></div>
+          <form id="ask-form" class="text-entry">
+            <label class="sr-only" for="question" data-i18n="inputLabel">अपना सवाल लिखें</label>
+            <input id="question" type="text" autocomplete="off" placeholder="उदाहरण: मुझे विधवा पेंशन चाहिए" data-i18n-placeholder="placeholder" />
+            <button id="send-button" class="send-button" type="submit" aria-label="Send question"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"></path></svg></button>
+          </form>
+          <div class="ask-foot"><span id="status-dot" class="online-dot"></span><span id="search-hint" data-i18n="searchHint">सरकारी स्रोतों में खोजेगा · आपकी भाषा में जवाब देगा</span></div>
+        </section>
+
+        <section id="answer" class="answer-card" aria-live="polite" hidden>
+          <div class="answer-top"><div class="answer-avatar">✳</div><div><span class="answer-label" data-i18n="answerLabel">आपके अगले कदम</span><div id="answer-title" class="answer-title"></div></div><button id="close-answer" class="close-answer" aria-label="Close">×</button></div>
+          <div id="ai-loading" class="ai-loading" hidden aria-hidden="true"><i></i><i></i><i></i></div>
+          <p id="answer-summary" class="answer-summary"></p>
+          <div id="follow-up" class="follow-up" hidden></div>
+          <div id="scheme-list" class="scheme-list"></div>
+          <ol id="steps" class="steps"></ol>
+          <div id="answer-note" class="answer-note"></div>
+          <div id="sources-wrap" class="sources-wrap" hidden><span class="sources-title" data-i18n="sourcesTitle">आधिकारिक स्रोत</span><div id="source-list" class="source-list"></div></div>
+          <a id="official-link" class="official-link" href="https://www.myscheme.gov.in/" target="_blank" rel="noopener"><span id="link-label" data-i18n="linkScheme">सरकारी योजनाएँ देखें</span><span aria-hidden="true">↗</span></a>
+          <p class="official-caption" data-i18n="officialCaption">आवेदन से पहले सरकारी पेज पर जानकारी जाँचें।</p>
+        </section>
+
+        <div class="official-footnote"><span class="official-emblem">◎</span><span data-i18n="trust">आसान जानकारी। सरकारी वेबसाइट के लिंक।</span><span class="secure-label"><i></i><span data-i18n="verifiedLabel">स्रोत जाँचे जाते हैं</span></span></div>
+      </div>
+    </div>
+
+    <footer><span>Disha</span><span class="footer-dot">·</span><span data-i18n="notGov">यह सरकारी वेबसाइट नहीं है</span><span class="footer-spacer"></span><span data-i18n="footer">शुरुआत करने में आपकी साथी</span></footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
+
