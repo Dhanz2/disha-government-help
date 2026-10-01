@@ -11,6 +11,14 @@ Disha is a voice- and text-first guide to Indian government services. It is desi
 - Optional AI answers with official-source search when an OpenAI API key and API credits are available
 - Scheme details shown inside Disha; official links open only when selected
 
+## Project structure
+
+- `index.html` contains the accessible page structure and loads the browser scripts in dependency order.
+- `translations.js` keeps interface text and language-specific labels together.
+- `guides.js` contains the offline service directory, topic matching, and built-in guide responses.
+- `app.js` handles page interactions, answer rendering, voice input, and the optional local AI service.
+- `server.mjs` serves the app and securely proxies optional AI requests so the API key stays on the server.
+
 ## Run locally
 
 1. Install Node.js 20.6 or later.
