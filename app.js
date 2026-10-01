@@ -1,4 +1,4 @@
-const { copy } = window.DishaTranslations;
+const copy = window.DishaTranslations;
 const { createOfflineGuide, isOfflineTopic, offlineDirectory } = window.DishaGuides;
 
 const language = document.querySelector('#language');
