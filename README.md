@@ -18,6 +18,10 @@ Disha is a voice- and text-first guide to Indian government services. It is desi
 3. Open a terminal in this folder and run `npm start`.
 4. Open `http://127.0.0.1:4173` in a browser.
 
+## Checks
+
+Run `npm test` to check the local server routes, default language, response security headers, and handling of malformed requests. The browser voice feature depends on the speech recognition support available in the user's browser and language; typing remains available as a fallback.
+
 The built-in guides do not need an API key. Live AI answers require OpenAI API billing and are billed separately from a ChatGPT subscription.
 
 ## Privacy and safety
