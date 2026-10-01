@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: disha-government-help
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+
