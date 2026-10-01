@@ -4,7 +4,8 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
-const port = Number(process.env.PORT || 4173);
+const requestedPort = Number(process.env.PORT || 4173);
+const port = Number.isInteger(requestedPort) && requestedPort > 0 && requestedPort <= 65535 ? requestedPort : 4173;
 const apiKey = process.env.OPENAI_API_KEY;
 const model = process.env.OPENAI_MODEL || 'gpt-5.5';
 const officialHosts = ['gov.in', 'nic.in'];
@@ -201,7 +202,12 @@ const server = http.createServer(async (req, res) => {
   if (url.pathname === '/api/health' && req.method === 'GET') return json(res, 200, {ready: Boolean(apiKey)});
   if (url.pathname === '/api/guide' && req.method === 'POST') {
     const origin = req.headers.origin;
-    if (origin && origin !== 'null' && new URL(origin).host !== req.headers.host) return json(res, 403, {error: 'This local guide only accepts requests from its own page.'});
+    if (origin && origin !== 'null') {
+      let originHost;
+      try { originHost = new URL(origin).host; }
+      catch { return json(res, 400, {error: 'Please send a valid page origin.'}); }
+      if (originHost !== req.headers.host) return json(res, 403, {error: 'This local guide only accepts requests from its own page.'});
+    }
     return guide(req, res);
   }
   if (req.method !== 'GET' && req.method !== 'HEAD') return json(res, 405, {error: 'This action is not available.'});
@@ -210,7 +216,15 @@ const server = http.createServer(async (req, res) => {
   if (!file.startsWith(`${root}${path.sep}`)) return json(res, 404, {error: 'Page not found.'});
   try {
     const content = await readFile(file);
-    res.writeHead(200, {'content-type': mimeTypes[path.extname(file)] || 'application/octet-stream', 'content-length': content.length, 'x-content-type-options': 'nosniff', 'cache-control': 'no-store'});
+    res.writeHead(200, {
+      'content-type': mimeTypes[path.extname(file)] || 'application/octet-stream',
+      'content-length': content.length,
+      'x-content-type-options': 'nosniff',
+      'referrer-policy': 'strict-origin-when-cross-origin',
+      'permissions-policy': 'camera=(), geolocation=(), payment=()',
+      'content-security-policy': "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; img-src 'self' data:; base-uri 'self'; form-action 'self'; frame-ancestors 'none'",
+      'cache-control': 'no-store',
+    });
     return req.method === 'HEAD' ? res.end() : res.end(content);
   } catch {
     return json(res, 404, {error: 'Page not found.'});
