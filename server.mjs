@@ -6,6 +6,7 @@ import {fileURLToPath} from 'node:url';
 const root = path.dirname(fileURLToPath(import.meta.url));
 const requestedPort = Number(process.env.PORT || 4173);
 const port = Number.isInteger(requestedPort) && requestedPort > 0 && requestedPort <= 65535 ? requestedPort : 4173;
+const host = process.env.HOST || '127.0.0.1';
 const apiKey = process.env.OPENAI_API_KEY;
 const model = process.env.OPENAI_MODEL || 'gpt-5.5';
 const officialHosts = ['gov.in', 'nic.in'];
@@ -231,8 +232,8 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(port, '127.0.0.1', () => {
-  console.log(`Disha is ready at http://127.0.0.1:${port}`);
+server.listen(port, host, () => {
+  console.log(`Disha is ready at http://${host}:${port}`);
   if (!apiKey) console.log('Add OPENAI_API_KEY to .env and restart to enable AI answers.');
 });
 
