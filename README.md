@@ -24,7 +24,7 @@ Run `npm test` to check the local server routes, default language, response secu
 
 ## Free public demo
 
-This repository includes a Render Blueprint. To publish it, sign in to Render, choose **New → Blueprint**, connect this GitHub repository, and deploy `render.yaml` on the Free plan. The app works without an OpenAI key using its built-in guides; live AI answers require a separately billed OpenAI API key. Render's free web services sleep after 15 minutes without traffic and can take about a minute to wake up.
+This repository can be published at no cost with GitHub Pages. In the repository, open **Settings → Pages**, select **GitHub Actions** as the publishing source, and push to the `main` branch. The workflow publishes the static app automatically. Built-in topic guides work without an API key. Live AI answers require a separately billed OpenAI API key and a backend; GitHub Pages hosts only static files.
 
 The built-in guides do not need an API key. Live AI answers require OpenAI API billing and are billed separately from a ChatGPT subscription.
 
